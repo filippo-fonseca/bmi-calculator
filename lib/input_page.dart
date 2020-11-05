@@ -91,7 +91,15 @@ class _InputPageState extends State<InputPage> {
             margin: EdgeInsets.all(10.0),
             width: double.infinity,
             height: bottomContainerHeight,
-            child: Text("Calculate"),
+            child: Center(
+              child: Text(
+                "CALCULATE",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
           )
         ],
       ),
