@@ -8,6 +8,7 @@ const bottomContainerHeight = 80.0;
 const activeCardColor = Color(0xff1d1e33);
 const inactiveCardColor = Color(0xff111328);
 const bottomContainerColor = Color(0xffeb1555);
+double bottomContainerOpacity = 1;
 
 class InputPage extends StatefulWidget {
   @override
@@ -86,18 +87,29 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: bottomContainerColor,
-            margin: EdgeInsets.all(10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
-            child: Center(
-              child: Text(
-                "CALCULATE",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold),
+          Opacity(
+            opacity: bottomContainerOpacity,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  bottomContainerOpacity = 0.6;
+                  print("The user has tapped the CALCULATE button.");
+                });
+              },
+              child: Container(
+                color: bottomContainerColor,
+                margin: EdgeInsets.all(10.0),
+                width: double.infinity,
+                height: bottomContainerHeight,
+                child: Center(
+                  child: Text(
+                    "CALCULATE",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             ),
           )
