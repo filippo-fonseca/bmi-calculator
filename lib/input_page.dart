@@ -35,34 +35,30 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = GenderType.male;
-                      });
-                    },
-                    child: ReusableCard(
-                        color: selectedGender == GenderType.male
-                            ? activeCardColor
-                            : inactiveCardColor,
-                        cardChild: IconContent(
-                            icon: FontAwesomeIcons.mars, label: "MALE")),
-                  ),
+                  child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = GenderType.male;
+                        });
+                      },
+                      color: selectedGender == GenderType.male
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      cardChild: IconContent(
+                          icon: FontAwesomeIcons.mars, label: "MALE")),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedGender = GenderType.female;
-                      });
-                    },
-                    child: ReusableCard(
-                        color: selectedGender == GenderType.female
-                            ? activeCardColor
-                            : inactiveCardColor,
-                        cardChild: IconContent(
-                            icon: FontAwesomeIcons.venus, label: "FEMALE")),
-                  ),
+                  child: ReusableCard(
+                      onPress: () {
+                        setState(() {
+                          selectedGender = GenderType.female;
+                        });
+                      },
+                      color: selectedGender == GenderType.female
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      cardChild: IconContent(
+                          icon: FontAwesomeIcons.venus, label: "FEMALE")),
                 ),
               ],
             ),
