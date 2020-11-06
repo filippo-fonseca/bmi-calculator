@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
+import 'constants.dart';
 import 'widgets/icon_content.dart';
 import 'widgets/reusable_card.dart';
 
-const bottomContainerHeight = 80.0;
-const activeCardColor = Color(0xff1d1e33);
-const inactiveCardColor = Color(0xff111328);
-const bottomContainerColor = Color(0xffeb1555);
 double bottomContainerOpacity = 1;
 
 enum GenderType { male, female }
@@ -30,6 +27,7 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
@@ -42,8 +40,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       color: selectedGender == GenderType.male
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kactiveCardColor
+                          : kinactiveCardColor,
                       cardChild: IconContent(
                           icon: FontAwesomeIcons.mars, label: "MALE")),
                 ),
@@ -55,8 +53,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       color: selectedGender == GenderType.female
-                          ? activeCardColor
-                          : inactiveCardColor,
+                          ? kactiveCardColor
+                          : kinactiveCardColor,
                       cardChild: IconContent(
                           icon: FontAwesomeIcons.venus, label: "FEMALE")),
                 ),
@@ -64,12 +62,26 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Expanded(
-            child: ReusableCard(color: activeCardColor),
+            child: ReusableCard(
+                color: kactiveCardColor,
+                cardChild: Column(
+                  children: [
+                    Text("HEIGHT", style: klabelTextStyle),
+                    Row(
+                      children: [
+                        Text(
+                          "180",
+                          style: kNumberStyle,
+                        ),
+                      ],
+                    )
+                  ],
+                )),
           ),
           Expanded(
             child: Row(
               children: [
-                Expanded(child: ReusableCard(color: activeCardColor)),
+                Expanded(child: ReusableCard(color: kactiveCardColor)),
                 Expanded(child: ReusableCard(color: Color(0xff1d1e33))),
               ],
             ),
@@ -84,10 +96,10 @@ class _InputPageState extends State<InputPage> {
                 });
               },
               child: Container(
-                color: bottomContainerColor,
+                color: kbottomContainerColor,
                 margin: EdgeInsets.all(10.0),
                 width: double.infinity,
-                height: bottomContainerHeight,
+                height: kbottomContainerHeight,
                 child: Center(
                   child: Text(
                     "CALCULATE",
