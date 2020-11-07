@@ -22,8 +22,11 @@ class _ResultsPageState extends State<ResultsPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child:
-                Container(child: Text("Your result", style: kTitleTextStyle)),
+            child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: Text("Your result", style: kTitleTextStyle),
+            ),
           ),
           Expanded(
             flex: 5,
@@ -35,35 +38,32 @@ class _ResultsPageState extends State<ResultsPage> {
                 children: [
                   Text("Normal", style: kresultTextstyle),
                   Text("18.3", style: kBMITextStytle),
-                  Text("Your BMI result is quite low. you should eat more!",
+                  Text("Your BMI result is quite low. You should eat more!",
                       textAlign: TextAlign.center, style: kbodyTextStyle),
                 ],
               ),
             ),
           ),
-          Opacity(
-            opacity: bottomContainerOpacity,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  bottomContainerOpacity = 0.6;
-                  print("The user has tapped the CALCULATE button.");
-                  Navigator.pop(context);
-                });
-              },
-              child: Container(
-                color: kbottomContainerColor,
-                margin: EdgeInsets.all(10.0),
-                width: double.infinity,
-                height: kbottomContainerHeight,
-                child: Center(
-                  child: Text(
-                    "RECALCULATE YOUR BMI",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                  ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                bottomContainerOpacity = 0.6;
+                print("The user has tapped the CALCULATE button.");
+                Navigator.pop(context);
+              });
+            },
+            child: Container(
+              color: kbottomContainerColor,
+              margin: EdgeInsets.all(10.0),
+              width: double.infinity,
+              height: kbottomContainerHeight,
+              child: Center(
+                child: Text(
+                  "RECALCULATE YOUR BMI",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),

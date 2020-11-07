@@ -178,31 +178,28 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Opacity(
-            opacity: bottomContainerOpacity,
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  bottomContainerOpacity = 0.6;
-                  print("The user has tapped the CALCULATE button.");
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return ResultsPage();
-                  }));
-                });
-              },
-              child: Container(
-                color: kbottomContainerColor,
-                margin: EdgeInsets.all(10.0),
-                width: double.infinity,
-                height: kbottomContainerHeight,
-                child: Center(
-                  child: Text(
-                    "CALCULATE",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                  ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                bottomContainerOpacity = 0.6;
+                print("The user has tapped the CALCULATE button.");
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ResultsPage();
+                }));
+              });
+            },
+            child: Container(
+              color: kbottomContainerColor,
+              margin: EdgeInsets.all(10.0),
+              width: double.infinity,
+              height: kbottomContainerHeight,
+              child: Center(
+                child: Text(
+                  "CALCULATE",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
