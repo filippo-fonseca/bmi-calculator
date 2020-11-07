@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/results_page.dart';
 import 'package:flutter/material.dart';
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
@@ -184,6 +185,9 @@ class _InputPageState extends State<InputPage> {
                 setState(() {
                   bottomContainerOpacity = 0.6;
                   print("The user has tapped the CALCULATE button.");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ResultsPage();
+                  }));
                 });
               },
               child: Container(
