@@ -5,6 +5,7 @@ import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import 'constants.dart';
 import 'widgets/icon_content.dart';
 import 'widgets/reusable_card.dart';
+import "calculator_brain.dart";
 
 double bottomContainerOpacity = 1;
 
@@ -183,9 +184,21 @@ class _InputPageState extends State<InputPage> {
               setState(() {
                 bottomContainerOpacity = 0.6;
                 print("The user has tapped the CALCULATE button.");
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ResultsPage();
-                }));
+                CalculatorBrain calc =
+                    CalculatorBrain(height: height, weight: weight);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ResultsPage(
+                        bmiResult: calc.calculateBMI(),
+                        resultText: calc.getResult(),
+                        interpretation: calc.getInterpretation(),
+                      );
+                    },
+                  ),
+                );
               });
             },
             child: Container(

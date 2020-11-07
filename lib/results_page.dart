@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 import "constants.dart";
 import 'widgets/reusable_card.dart';
+import "input_page.dart";
 
 double bottomContainerOpacity = 1;
 
 class ResultsPage extends StatefulWidget {
+  ResultsPage({this.bmiResult, this.resultText, this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
   @override
   _ResultsPageState createState() => _ResultsPageState();
 }
@@ -36,9 +42,9 @@ class _ResultsPageState extends State<ResultsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("Normal", style: kresultTextstyle),
-                  Text("18.3", style: kBMITextStytle),
-                  Text("Your BMI result is quite low. You should eat more!",
+                  Text(widget.resultText, style: kresultTextstyle),
+                  Text(widget.bmiResult, style: kBMITextStytle),
+                  Text(widget.interpretation,
                       textAlign: TextAlign.center, style: kbodyTextStyle),
                 ],
               ),
